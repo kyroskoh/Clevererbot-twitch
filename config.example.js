@@ -1,17 +1,29 @@
 //Create the config var
 var config = {
-	options: {
-		debug: true
-	 },
-	connection: {
-		random: "chat",
-		reconnect: true
+	twitch: {
+		options: {
+			debug: true
+		 },
+		connection: {
+			random: "chat",
+			reconnect: true
+		},
+		identity: {
+			username: "TwitchUsername",
+			password: "oauth:abc123"
+		},
+		channels: ["#TwitchUsername"]
 	},
-	identity: {
-		username: "ExampleUsername",
-		password: "oauth:abc123"
+	cleverbotIO: {
+		apiUser: "abc123",
+		apiKey: "abc123abc123"
 	},
-	channels: ["#exampleusername"]
+	chatbot: {
+		triggers: {
+			directMention: true,
+			randomResponseChance: 3
+		}
+	}
 };
 
 //Make the config var available when imported with require()

@@ -42,8 +42,12 @@ chatbot.on("chat", function (channel, user, message, self) {
 	
 	//Time to make a response!
 	if (shouldRespond == true) { //if any of the above checks responded yes
-		console.log("Asking cleverbotIO API");
-		cleverbot.ask(message, function (err, response) { //ask the cleverbotIO API
+		//Use regex to remove botname in message if directly mentioned e.g. "Bot, do this." -> "do this."
+		var re = new RegExp("^(?:" + config.twitch.identity.username + "\\W*\\b)?(.*)$", "i");
+		var messageToAsk = re.exec(message)[1];
+	
+		console.log("Asking cleverbotIO API: " + messageToAsk);
+		cleverbot.ask(messageToAsk, function (err, response) { //ask the cleverbotIO API
 			if (err) { //if there's an error
 				console.log("Error asking cleverbotIO: " + err + " | " + "response: " + response);
 			} else { //if the response is a success
@@ -64,7 +68,7 @@ function directlyMentioned(message) {
 	}
 	
 	var messageCheck = message.toUpperCase(); //Make it case insensitive
-	var nameCheck = config.twitch.identity.username.toUpperCase() + ", "; //e.g. "CLEVERERBOT, "
+	var nameCheck = config.twitch.identity.username.toUpperCase(); //e.g. "CLEVERERBOT"
 	
 	//console.log("StartsWith(): " + messageCheck.startsWith(nameCheck));
 	if (messageCheck.startsWith(nameCheck)) {

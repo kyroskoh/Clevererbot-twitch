@@ -22,6 +22,10 @@ var config = {
 		triggers: {
 			directMention: true,
 			randomResponseChance: 3
+		},
+		options: {
+			useNamedResponse: false,
+			fullMoonCrazy: false
 		}
 	}
 };

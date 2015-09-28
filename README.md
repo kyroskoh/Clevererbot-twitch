@@ -25,7 +25,6 @@ This is the section for customising how your clevererbot chatbot will run.
       
     + `config.chatbot.triggers.randomResponseChance` | *number* | *0-100*  
     This the chance for clevererbot to randomly respond to any message.  
-    
     e.g. a value of `50` will make Clevererbot randomly respond to half-of-all messages.  
     Setting this value to `0` will disable the random responding.  
     

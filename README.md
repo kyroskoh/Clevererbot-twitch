@@ -24,9 +24,9 @@ This is the section for customising how your clevererbot chatbot will run.
     e.g. `"Clevererbot, how are you today?"` will prompt clevererbot to respond.  
       
     + `config.chatbot.triggers.randomResponseChance` | *number* | *0-100*  
-    This the chance for clevererbot to randomly respond to any message.  
-    e.g. a value of `50` will make Clevererbot randomly respond to half-of-all messages.  
-    Setting this value to `0` will disable the random responding.  
+    This the percentage chance for clevererbot to randomly respond to any message.  
+    e.g. a value of `25` will make Clevererbot respond to a quarter of anything said in the channel.  
+    Setting this value to `0` will disable random responses.  
     
     + `config.chatbot.options`  
     These are some other options you can use to adjust the behaviour of clevererbot.

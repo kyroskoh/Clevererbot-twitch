@@ -123,8 +123,8 @@ function formatResponse(response, user) {
 		var date = new Date() //Grab today's date
 		var moonPhase = SunCalc.getMoonIllumination(date); //Calculate Moon's phase
 		var moonCutoff = 0.9; //What cutoff of the moon phase we use to start turning crazy
-		var maxZalgoFreq = 0.5; //How many distortions get added to the text at maximum full moon (0.0-1.0)
-		var maxZalgoIntensity = 5; //How intense the distortions are at maximum full moon (0-20?)
+		var maxZalgoFreq = 0.4; //How many distortions get added to the text at maximum full moon (0.0-1.0)
+		var maxZalgoIntensity = 3; //How intense the distortions are at maximum full moon (0-20?)
 		
 		if (moonPhase.fraction >= moonCutoff) { //if it's close enough to the full moon
 			var intensity = ((moonPhase.fraction-moonCutoff)/(1-moonCutoff)); //How intense to make things overall (0.0->1.0)]

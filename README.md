@@ -1,6 +1,8 @@
 # Clevererbot-twitch
 
-Clevererbot chatbot for use on twitch.tv, uses the cleverbot.io API and is written in Node<span>.js</span>. It can be found [on NPM](https://www.npmjs.com/package/clevererbot-twitch) for easy installation.
+Clevererbot chatbot for use on twitch.tv, uses the cleverbot.io API and is written in Node<span>.js</span>. 
+
+It can be found [on NPM](https://www.npmjs.com/package/clevererbot-twitch) for easy installation.
 
 ## Config
 There is a sample config file that comes supplied, you will need to make a copy of it and rename it from `config.example.js` to just `config.js`.

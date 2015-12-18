@@ -1,6 +1,6 @@
 {
   "name": "clevererbot-twitch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Clevererbot chatbot for use on twitch.tv",
   "main": "bot.js",
   "dependencies": {

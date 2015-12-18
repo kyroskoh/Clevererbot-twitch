@@ -37,7 +37,7 @@ chatbot.on("chat", function (channel, user, message, self) {
 	if (directlyMentioned(message)) { //Check if someone said "ClevererBot, " at the start
 		shouldRespond = true;
 		console.log("directlyMentioned() responded true");
-	} else if (randomlyRespond()) { //Check whether to randomly respond to someone
+	} else if (randomlyRespond(user)) { //Check whether to randomly respond to someone
 		shouldRespond = true;
 		console.log("randomlyRespond() responded true");
 	}
@@ -82,7 +82,7 @@ function directlyMentioned(message) {
 };
 
 //Check whether to randomly respond
-function randomlyRespond() {
+function randomlyRespond(user) {
 	//Check if the config declares the option properly
 	if (typeof(config.chatbot.triggers.randomResponseChance) !== "number") { 
 		return false; //if config value isn't a number, it's set wrong
@@ -90,7 +90,16 @@ function randomlyRespond() {
 		return false; //if config value isn't between 0 and 100, it's set wrong
 	}
 	//Otherwise responseChance is set correctly
-	
+
+	//Check whether Clevererbot is triggering off itself
+	var botName = config.twitch.identity.username.toUpperCase(); //e.g. "CLEVERERBOT"
+	var msgSender = user.username.toUpperCase(); //e.g. "TWITCHGUY101"
+
+	if (msgSender === botName) { //If the message was sent by Clevererbot, don't respond
+		return false;
+	}
+
+	//If it's not triggering off itself, do the random number check
 	var randomChance = config.chatbot.triggers.randomResponseChance; //Percentage chance to randomly respond
 	var diceRoll = Math.floor(Math.random() * 100) + 1; //Get a number between 1 and 100
 	
